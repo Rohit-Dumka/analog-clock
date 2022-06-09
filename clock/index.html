@@ -1,0 +1,157 @@
+<!-- Created by Rohit xD-->
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link href="style.css" rel="stylesheet"/>  
+<script src="index.js"></script>   
+
+            <!-- And here's a -->
+           <title> Clock </title>
+           
+</head>    
+<body>
+             <!-- Left hr -->
+          
+    <div class="hr_1"></div> 
+    <div class="hr_4"></div>
+    <div class="hr_2"></div>
+    
+            <!-- Right hr -->
+    
+    <div class="hr_3"></div>
+    <div class="hr_5"></div>
+    
+            <!-- Bottom hr -->
+    
+    <div class="hr_6"></div>
+    <div class="hr_7"></div>
+   
+             <!-- Top hr -->
+ 
+    <div class="hr_8"></div>
+    <div class="hr_9"></div>
+   
+             
+    <div class="out_body">
+       <div class="in_body"></div> 
+       <div class="shadow"></div>  
+       
+  <div class="num_clr">
+    <div class="twelve">12</div>
+    <div class="one"> </div>
+    <div class="two"> </div>
+    <div class="three">3</div>
+    <div class="four"> </div>
+    <div class="five"> </div>
+    <div class="six">6</div>
+    <div class="seven"> </div>
+    <div class="eight"> </div>
+    <div class="nine">9</div>
+    <div class="ten"> </div>
+    <div class="eleven"> </div>
+  </div>
+ 
+    <div id="hour"></div>
+    <div id="minute"></div>
+    <div id="seconds"></div>
+    
+    <div class="dot"></div>
+
+    </div> <br>
+    
+    <p id="clock" > </p>
+    <p id="date"> </p>
+
+           
+<audio controls style="display:none;" loop id="audio">
+     <source id="audio-source"
+     src="https://www.dropbox.com/s/epy8k8er5ahaakr/coffin_dance__guitar.mp3?raw=1"> </audio>
+   
+      
+    
+  <script>
+    var hour = document.getElementById("hour");
+    var minute = document.getElementById("minute");
+    var seconds = document.getElementById("seconds");
+  
+    var clock = setInterval(function clock() {
+      var date = new Date();
+      var hr = date.getHours();
+      var min = date.getMinutes();
+      var sec = date.getSeconds();
+  
+      var hr_setup = (hr * 30) + (min / 2);
+      var min_setup = (min * 6) + (sec / 10);
+      var sec_setup = sec * 6;
+  
+      hour.style.transform = 'rotate(' + hr_setup + "deg)";
+      minute.style.transform = 'rotate(' + min_setup + 'deg)';
+      seconds.style.transform = 'rotate(' + sec_setup + 'deg)';
+    }, 1000);
+  </script>  
+  
+                <!-- -->
+  
+  <script>
+       
+function currentTime() {
+  var date = new Date(); 
+  var hour = date.getHours();
+  var min = date.getMinutes();
+  var sec = date.getSeconds();
+  var midday = "AM";
+  midday = (hour >= 12) ? "PM" : "AM"; 
+  hour = (hour == 0) ? 12 : ((hour > 12) ? (hour - 12): hour); 
+  
+  hour = updateTime(hour);
+  min = updateTime(min);
+  sec = updateTime(sec);
+  document.getElementById("clock").innerText = hour + " : " + min + " : " + sec + " " + midday; 
+    var t = setTimeout(currentTime, 1000); 
+}
+
+function updateTime(t) { 
+  if (t < 10) {
+    return "0" + t;
+  }
+  else {
+    return t;
+  }
+}
+
+currentTime();
+  
+      
+      
+  </script>
+
+  <script>
+    var d = new Date()
+    var day = new Array("Sun","Mon","Tue","Wed","Thu",
+                    "Fri","Sat");
+
+    var month = new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug",
+                    "Sep","Oct","Nov","Dec");
+
+document.getElementById("date").innerHTML= day[d.getDay()] + " , " + d.getDate() + " " + month[d.getMonth()] + " , " + d.getFullYear();
+</script>
+
+                <!-- -->
+
+   <script>
+
+window.addEventListener("mouseover",play);
+window.addEventListener("click",play);
+function play(){ document.getElementById("audio").play();
+}
+             
+  </script>
+  
+    </body>
+</html>
+
+
