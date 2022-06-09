@@ -1,1 +1,3 @@
-# analog-clock
+# analog-clock 
+
+Tech stack : HTML,CSS, JavaScript
