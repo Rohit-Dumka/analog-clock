@@ -3,4 +3,4 @@
 Tech stack : HTML,CSS, JavaScript
 
 
-developed an smartphone friendly analogue clock.
+developed an smartphone friendly analog clock.
